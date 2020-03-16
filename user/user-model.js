@@ -31,6 +31,8 @@ async function addAction(action, user_id) {
         .insert(newAction)
 }
 
+
+
 function find() {
     return db("users")
     .select("id", 'char_name', "race", "class", "str_mod")
@@ -42,11 +44,14 @@ function findBy(filter) {
         .where(filter)
 }
 
+
+
 module.exports = {
     add,
     find,
     findBy,
     findById,
     findUserActions,
-    addAction
+    addAction,
+   
 }
