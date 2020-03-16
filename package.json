@@ -1,0 +1,32 @@
+{
+  "name": "quick-dice-backend",
+  "version": "1.0.0",
+  "description": "BackEnd for my dice roller.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Humphreyj/quick-dice-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Humphreyj/quick-dice-backend/issues"
+  },
+  "homepage": "https://github.com/Humphreyj/quick-dice-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.11",
+    "nodemon": "^2.0.2",
+    "sqlite3": "^4.1.1"
+  }
+}
