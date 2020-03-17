@@ -29,14 +29,16 @@ router.post('/login', async(req, res, next) => {
 
         const user = await Users.findBy({username}).first()
         const passwordValid = await bcrypt.compare(password,user.password);
-        if(!user || !passwordValid) {
-            return res.status(401).json({message: 'You are not allowed here.'})
+        if(user && passwordValid) {
+            req.session.user = user;
+            const token = generateToken(user)
+            res.status(200).json({id: user.id, token})
+        }else {
+            res.status(401).json({message: 'User cannot be found.'})
         }
-        req.session.user = user;
-        const token = generateToken(user)
-        res.status(200).json({id: user.id, token})
+       
     }catch(err) {
-        next(err);
+        res.status(500).json({message: "There was an error accessing your account."})
     }
     //Assume the token can be seen by anyone
     //DO NOT send sensitive data.
